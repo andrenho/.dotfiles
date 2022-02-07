@@ -63,6 +63,26 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# prompt
+PROMPT_COMMAND=__prompt_command
+__prompt_command()
+{
+  local EXIT="$?"
+  local RSet='\[\e[0m\]'
+  local Red='\[\e[0;31m\]'
+  local Cyan='\[\e[0;36m\]'
+  local JOBS=''
+  local NJobs=$(jobs | wc -l | xargs)
+  if [ ${NJobs} != 0 ]; then
+    JOBS="${Cyan}[${NJobs}]${RSet} "
+  fi
+  if [[ $EXIT != 0 && $EXIT != 130 ]]; then  # 130 = Ctrl+C
+    PS1="$(__git_ps1 "(%s) ")${JOBS}\w ${Red}:(${RSet} "
+  else
+    PS1="$(__git_ps1 "(%s) ")${JOBS}\w\$ "
+  fi
+}
+
 # neofetch
 neofetch --config $HOME/.neofetch.conf
 
