@@ -79,7 +79,7 @@ __prompt_command()
   if [[ $EXIT != 0 && $EXIT != 130 ]]; then  # 130 = Ctrl+C
     PS1="$(__git_ps1 "(%s) ")${JOBS}\w ${Red}:(${RSet} "
   else
-    PS1="$(__git_ps1 "(%s) ")${JOBS}\w\$ "
+    PS1="$(__git_ps1 "(%s) ")${JOBS}\w\\$ "
   fi
 }
 
