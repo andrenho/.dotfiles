@@ -83,7 +83,4 @@ __prompt_command()
   fi
 }
 
-# neofetch
-neofetch --config $HOME/.neofetch.conf
-
 # vim: ts=2:sw=2:sts=2:expandtab
