@@ -23,7 +23,7 @@ export EDITOR=/usr/bin/vim			              # default editor is VIM
 # 
 # default prompt
 #
-source /usr/share/git-core/contrib/completion/git-prompt.sh
+source /usr/share/git/completion/git-prompt.sh
 export PS1='\H: $(__git_ps1 "(%s) ")\w\$ '
 
 # 
